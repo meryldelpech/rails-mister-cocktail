@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div>
+    <h1>Cocktail <%= @cocktail.name %></h1>
+
+    <h2><%= @cocktail.name %>Receipe</h2>
+    <ul>
+      <% @cocktail.doses.each do |dose| %>
+        <li>
+          <%= dose.ingredient.name %>
+          <%= dose.description %>
+          <%= link_to "🗑", dose_path(dose),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Add an ingredient</h2>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.association :ingredient, collection: Ingredient.all, as: :select %>
+        <%= f.input :description %>
+        <%= f.submit "add", class: "btn btn-primary" %>
+        <%= f.button :button, "reset", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+  </div>
+
+    <h2>Reviews</h2>
+    <ul>
+      <% @cocktail.reviews.each do |review| %>
+        <li>
+          <p><%= review.rating %> - <%= review.content %></p>
+        </li>
+      <% end %>
+    </ul>
+
+  <div>
+    <p>Add a review</p>
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :rating, collection: ["★", "★★", "★★★", "★★★★", "★★★★★"] %>
+        <%= f.input :content %>
+        <%= f.submit "add review", class: "btn btn-primary" %>
+        <%= f.button :button, "reset", type: "reset", class: "btn-outline-secondary" %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= link_to "Back to cocktails list", cocktails_path %>
+  </div>
+</div>

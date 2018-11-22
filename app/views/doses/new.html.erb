@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Add a new dose</h1>
+
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.association :ingredient, collection: Ingredient.all, as: :select %>
+    <%= f.input :description %>
+    <%= f.submit "add", class: "btn btn-primary" %>
+    <%= f.button :button, "reset", type: "reset", class: "btn-outline-secondary" %>
+  <% end %>
+
+  <%= link_to "bask to Cocktails list", cocktails_path %>
+
+</div>
