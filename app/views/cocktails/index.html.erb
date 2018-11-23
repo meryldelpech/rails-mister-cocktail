@@ -6,6 +6,8 @@
     <p>Create your own cocktail, and enjoy recipes of Mojito</p>
     <%= simple_form_for @cocktail, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
       <%= f.input :name, label: false, placeholder: "cocktail name" %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit "Add", class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -23,9 +25,16 @@
     </div>
     <div class="cocktail-grid">
       <% @cocktails.reverse.each do |cocktail| %>
-        <div class="card-cocktail" style="background-image: url('https://source.unsplash.com/<%=rand(300..350) %>x300/?cocktail')">
+        <div class="card-cocktail" style="background-image: url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>')">
           <div class="card-cocktail-name">
             <p><%= link_to cocktail.name, cocktail_path(cocktail.id) %></p>
+            <ul>
+              <% cocktail.reviews.each do |review| %>
+                <li>
+                  <p><%= review.rating %></p>
+                </li>
+              <% end %>
+            </ul>
           </div>
           <div class="card-cocktail-delete">
             <p><%= link_to "🗑", cocktail_path(cocktail),
@@ -38,5 +47,7 @@
 
 
 </div>
+
+<!-- https://source.unsplash.com/<%#=rand(300..350) %>x300/?cocktail -->
 
 
