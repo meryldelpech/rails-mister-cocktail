@@ -1,51 +1,42 @@
-<div class="container">
-  <div>
-    <form action="">
-      <input type="text" name="search" id="search" placeholder="Search a cocktail">
-      <input type="submit" value="🔍">
-    </form>
-  </div>
 
-  <div class="banner">
-    <div>
-      <h1>cocktails fever</h1>
+
+<div class="banner">
+  <div class="banner-content text-center">
+    <h1>cocktails fever</h1>
+    <p>Create your own cocktail, and enjoy recipes of Mojito</p>
+    <%= simple_form_for @cocktail, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
+      <%= f.input :name, label: false, placeholder: "cocktail name" %>
+      <%= f.submit "Add", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+
+    <div id="title-search">
+      <h2>Last added cocktails</h2>
+      <form action="">
+        <input type="text" name="search" id="search" placeholder="Search a cocktail">
+        <input type="submit" value="🔍">
+      </form>
     </div>
-    <div>
-      <%= simple_form_for(@cocktail) do |f| %>
-        <% if @cocktail.errors.any? %>
-          <div>
-            <ul>
-              <% @cocktail.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-            </ul>
+    <div class="cocktail-grid">
+      <% @cocktails.reverse.each do |cocktail| %>
+        <div class="card-cocktail" style="background-image: url('https://source.unsplash.com/<%=rand(300..350) %>x300/?cocktail')">
+          <div class="card-cocktail-name">
+            <p><%= link_to cocktail.name, cocktail_path(cocktail.id) %></p>
           </div>
-        <% else %>
-          <%= f.input :name %>
-          <%= f.button :submit, "Add", class: "btn-primary" %>
-        <% end %>
+          <div class="card-cocktail-delete">
+            <p><%= link_to "🗑", cocktail_path(cocktail),
+                method: :delete,
+                data: { confirm: "Are you sure?" } %></p>
+          </div>
+        </div>
       <% end %>
     </div>
-  </div>
 
-  <div>
-    <div>
-      <h2>Last added cocktails</h2>
-    </div>
-    <div>
-      <ul>
-        <% @cocktails.reverse.each do |cocktail| %>
-            <li>
-              <span><%= link_to cocktail.name, cocktail_path(cocktail.id)  %></span>
-              <span><%= link_to "🗑", cocktail_path(cocktail),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %></span>
-            </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
 
-</div>s
+</div>
 
 

@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3.7'
-gem 'font-awesome-sass', '~> 5.0.9'
+gem 'font-awesome-sass', '~> 5.5.0'
 gem 'simple_form'
 
 group :development, :test do
