@@ -1,23 +1,26 @@
-<div class="container">
 
-  <div>
+<div class="banner-cocktail">
+  <div class="banner-cocktail-content" style="background-image: url('')">
     <h1>Cocktail <%= @cocktail.name %></h1>
 
-    <h2><%= @cocktail.name %>Receipe</h2>
-    <%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
-    <ul>
-      <% @cocktail.doses.each do |dose| %>
-        <li>
-          <%= dose.ingredient.name %>
-          <%= dose.description %>
-          <%= link_to "🗑", dose_path(dose),
-                method: :delete,
-                data: { confirm: "Are you sure?" } %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 
+    <h2><%= @cocktail.name %>Receipe</h2>
+    <%=  %>
+  </div>
+  <ul>
+    <% @cocktail.doses.each do |dose| %>
+      <li>
+        <%= dose.ingredient.name %>
+        <%= dose.description %>
+        <%= link_to "🗑", dose_path(dose),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="container">
   <div>
     <h2>Add an ingredient</h2>
     <%= simple_form_for [@cocktail, @dose] do |f| %>
