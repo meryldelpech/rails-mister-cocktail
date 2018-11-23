@@ -3,7 +3,7 @@
 <div class="banner">
   <div class="banner-content text-center">
     <h1>cocktails fever</h1>
-    <p>Create your own cocktail, and enjoy recipes of Mojito</p>
+    <p>Create your own cocktail, and enjoy recipes of <span id="banner-typed-text">Mojito</span></p>
     <%= simple_form_for @cocktail, wrapper: :inline_form, html: { class: 'form-inline' } do |f| %>
       <%= f.input :name, label: false, placeholder: "cocktail name" %>
       <%= f.input :photo %>
@@ -39,7 +39,7 @@
           <div class="card-cocktail-delete">
             <p><%= link_to "🗑", cocktail_path(cocktail),
                 method: :delete,
-                data: { confirm: "Are you sure?" } %></p>
+                data: { confirm: "Are you sure?" }%></p>
           </div>
         </div>
       <% end %>

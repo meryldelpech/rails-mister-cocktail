@@ -8,17 +8,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: white;
 }
+
 .navbar-cocktails-white {
   background-color: white;
+  color: black
 }
 
 .navbar-cocktails-menu {
     display: flex;
     flex: 1 1 auto;
     justify-content: space-around;
-    color: black;
-    opacity: 0.6;
     font-size: 14px;
     text-transform: uppercase;
     flex: 1 1 auto;

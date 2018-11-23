@@ -9,3 +9,12 @@
 
 console.log('Hello World from Webpacker')
 import 'bootstrap';
+
+import { loadDynamicBannerText } from '../components/banner';
+loadDynamicBannerText();
+
+import { bindSweetAlertButtonDemo } from '../components/sweet-alert';
+bindSweetAlertButtonDemo();
+
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();

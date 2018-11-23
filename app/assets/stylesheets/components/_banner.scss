@@ -3,14 +3,13 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background-image: url(https://www.mailexperiences.co.uk/content/img/product/large/royal-cocktails-with-sharing-18100237.jpg);
+  background-image: linear-gradient(-225deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 40%), url(https://www.mailexperiences.co.uk/content/img/product/large/royal-cocktails-with-sharing-18100237.jpg);
   height: 100vh;
   background-size: cover;
   background-attachment: fixed;
-  opacity: 0.8;
 }
 
-.banner-content h1 {
+.banner-content, .banner-cocktail-content h1 {
   font-size: 42;
   color : white;
 }
@@ -20,5 +19,17 @@
   color : white;
   margin-bottom: 30px;
 }
+
+.banner-cocktail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 400px;
+  opacity: 0.8;
+}
+
+
 
 

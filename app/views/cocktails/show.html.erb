@@ -1,12 +1,12 @@
 
-<div class="banner-cocktail">
-  <div class="banner-cocktail-content" style="background-image: url('')">
+<div class="banner-cocktail" style="background-image: url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>')">
+  <div class="banner-cocktail-content">
     <h1>Cocktail <%= @cocktail.name %></h1>
-
-
-    <h2><%= @cocktail.name %>Receipe</h2>
-    <%=  %>
   </div>
+</div>
+
+<div>
+  <h2><%= @cocktail.name %>Receipe</h2>
   <ul>
     <% @cocktail.doses.each do |dose| %>
       <li>
